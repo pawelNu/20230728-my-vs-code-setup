@@ -5,6 +5,7 @@ Run in terminal: `code --list-extensions`
 bierner.docs-view
 bierner.markdown-mermaid
 bpruitt-goddard.mermaid-markdown-syntax-highlighting
+ChakrounAnas.turbo-console-log
 ClemensPeters.format-json
 dbaeumer.vscode-eslint
 donjayamanne.githistory
@@ -12,7 +13,6 @@ DotJoshJohnson.xml
 dsznajder.es7-react-js-snippets
 esbenp.prettier-vscode
 formulahendry.auto-rename-tag
-gordonlarrigan.vscode-kanbn
 GrapeCity.gc-excelviewer
 Gruntfuggly.todo-tree
 hediet.vscode-drawio
