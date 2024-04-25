@@ -10,7 +10,7 @@ if "%~2"=="" (
     exit /b
 )
 if "%~3"=="" (
-    echo Podaj ścieżkę do pliku szablonu HTML jako trzeci argument.
+    echo Podaj ścieżkę do pliku (w podwójnych cudzysłowach) szablonu HTML jako trzeci argument.
     exit /b
 )
 
