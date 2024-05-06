@@ -1,4 +1,5 @@
 @echo off
+chcp 65001
 
 rem Sprawdź czy podano wszystkie wymagane argumenty
 if "%~1"=="" (
@@ -10,7 +11,7 @@ if "%~2"=="" (
     exit /b
 )
 if "%~3"=="" (
-    echo Podaj ścieżkę do pliku (w podwójnych cudzysłowach) szablonu HTML jako trzeci argument.
+    echo Podaj ścieżkę do pliku ^(w podwójnych cudzysłowach^) szablonu HTML jako trzeci argument.
     exit /b
 )
 
@@ -36,11 +37,14 @@ if %hour% LSS 10 (set "hour=0%hour%")
 
 set "formatted_date=%year%-%month%-%day%"
 set "formatted_time=%hour%:%minute%:%second%"
+set "begin=^<b^>Ostatnia aktualizacja:"
+set "end=^</b^>"
 
 echo.>> %mdFile%
-echo "<b>Ostatnia aktualizacja: %formatted_date% %formatted_time%</b>" >> %mdFile%
+echo %begin% %formatted_date% %formatted_time%%end% >> %mdFile%
 
-@echo Rozpoczęto generacje HTML...
-pandoc -s %mdFile% -o %htmlFile% --template="%templateFile%"
-
-@echo Z pliku %mdFile% utworzono %htmlFile%.
+pandoc -s %mdFile% -o %htmlFile% --template="%templateFile%" && (
+    @echo Z pliku %mdFile% utworzono %htmlFile%.
+) || (
+    @echo Błąd podczas generowania pliku HTML.
+)
